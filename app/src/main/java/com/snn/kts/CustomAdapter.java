@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,15 +31,25 @@ class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.Holder> {
 
     @Override
     public int getItemCount() {
-        return 10;
+        return 20;
     }
 
     class Holder extends RecyclerView.ViewHolder {
+        private int position;
+
         Holder(@NonNull View itemView) {
             super(itemView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, "Position : " + position, Toast.LENGTH_SHORT).show();
+                }
+            });
         }
 
         void setData(int position) {
+            this.position = position;
         }
     }
 }
