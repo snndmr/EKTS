@@ -71,18 +71,11 @@ public class MainActivity extends AppCompatActivity {
         final Dialog dialog = new Dialog(MainActivity.this);
         dialog.setContentView(R.layout.event_dialog);
 
+        Calendar calendar = Calendar.getInstance();
+        String date = calendar.get(Calendar.MONTH) + "/" + (calendar.get(Calendar.DAY_OF_MONTH) + 1) + "/" + calendar.get(Calendar.YEAR);
+        String time = calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE);
+
         final Event tempEvent = new Event();
-        Calendar mCalendar = Calendar.getInstance();
-
-        int hour = mCalendar.get(Calendar.HOUR_OF_DAY);
-        int minute = mCalendar.get(Calendar.MINUTE);
-        int day = mCalendar.get(Calendar.DAY_OF_MONTH);
-        int month = mCalendar.get(Calendar.MONTH);
-        int year = mCalendar.get(Calendar.YEAR);
-
-        String date = day + "/" + (month + 1) + "/" + year;
-        String time = hour + ":" + minute;
-
         tempEvent.setDateEnd(date);
         tempEvent.setDateStart(date);
         tempEvent.setTimeEnd(time);
@@ -92,14 +85,13 @@ public class MainActivity extends AppCompatActivity {
         final EditText etEventName = dialog.findViewById(R.id.etEventName);
         final EditText etEventLocation = dialog.findViewById(R.id.etEventLocation);
         final EditText etEventDescription = dialog.findViewById(R.id.etEventDescription);
-
         final TextView tvDateStart = dialog.findViewById(R.id.tvDateStart);
         final TextView tvDateEnd = dialog.findViewById(R.id.tvDateEnd);
-        tvDateStart.setText(date);
-        tvDateEnd.setText(date);
-
         final TextView tvTimeStart = dialog.findViewById(R.id.tvTimeStart);
         final TextView tvTimeEnd = dialog.findViewById(R.id.tvTimeEnd);
+
+        tvDateStart.setText(date);
+        tvDateEnd.setText(date);
         tvTimeStart.setText(time);
         tvTimeEnd.setText(time);
 
