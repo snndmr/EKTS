@@ -16,7 +16,7 @@
         <EditText
             android:id="@+id/et_search_bar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@null"
             android:cursorVisible="false"
             android:drawableStart="@drawable/search"
