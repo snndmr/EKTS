@@ -1,4 +1,4 @@
-package com.snn.kts;
+package com.snn.ekts;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.event_dialog);
 
         Calendar calendar = Calendar.getInstance();
-        String date = calendar.get(Calendar.MONTH) + "/" + (calendar.get(Calendar.DAY_OF_MONTH) + 1) + "/" + calendar.get(Calendar.YEAR);
+        String date = calendar.get(Calendar.DAY_OF_MONTH) + "/" + (calendar.get(Calendar.MONTH) + 1) + "/" + calendar.get(Calendar.YEAR);
         String time = calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE);
 
         final Event tempEvent = new Event();

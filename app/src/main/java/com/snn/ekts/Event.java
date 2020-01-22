@@ -1,4 +1,4 @@
-package com.snn.kts;
+package com.snn.ekts;
 
 class Event {
     private long ID;
@@ -22,32 +22,6 @@ class Event {
         this.timeStart = "00:00";
         this.location = "Konum Yok";
         this.description = "Tanım Yok";
-    }
-
-    Event(int image, String name, String dateEnd, String dateStart, String timeEnd, String timeStart, String location, String description) {
-        this.ID = System.currentTimeMillis() / 1000;
-
-        this.image = image;
-        this.name = name;
-        this.dateEnd = dateEnd;
-        this.dateStart = dateStart;
-        this.location = location;
-        this.description = description;
-    }
-
-    @Override
-    public String toString() {
-        return "Event{" +
-                "\n ID=" + ID +
-                "\n image=" + image +
-                "\n name='" + name + '\'' +
-                "\n dateEnd='" + dateEnd + '\'' +
-                "\n dateStart='" + dateStart + '\'' +
-                "\n timeEnd='" + timeEnd + '\'' +
-                "\n timeStart='" + timeStart + '\'' +
-                "\n location='" + location + '\'' +
-                "\n description='" + description + '\'' +
-                '}';
     }
 
     long getID() {

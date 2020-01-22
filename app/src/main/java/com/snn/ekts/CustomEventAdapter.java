@@ -1,4 +1,4 @@
-package com.snn.kts;
+package com.snn.ekts;
 
 import android.content.Context;
 import android.view.LayoutInflater;
