@@ -1,25 +1,28 @@
 package com.snn.kts;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     static ArrayList<Event> events = new ArrayList<>();
@@ -69,15 +72,36 @@ public class MainActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.event_dialog);
 
         final Event tempEvent = new Event();
+        Calendar mCalendar = Calendar.getInstance();
+
+        int hour = mCalendar.get(Calendar.HOUR_OF_DAY);
+        int minute = mCalendar.get(Calendar.MINUTE);
+        int day = mCalendar.get(Calendar.DAY_OF_MONTH);
+        int month = mCalendar.get(Calendar.MONTH);
+        int year = mCalendar.get(Calendar.YEAR);
+
+        String date = day + "/" + (month + 1) + "/" + year;
+        String time = hour + ":" + minute;
+
+        tempEvent.setDateEnd(date);
+        tempEvent.setDateStart(date);
+        tempEvent.setTimeEnd(time);
+        tempEvent.setTimeStart(time);
 
         // To find components of event dialog
         final EditText etEventName = dialog.findViewById(R.id.etEventName);
         final EditText etEventLocation = dialog.findViewById(R.id.etEventLocation);
         final EditText etEventDescription = dialog.findViewById(R.id.etEventDescription);
+
         final TextView tvDateStart = dialog.findViewById(R.id.tvDateStart);
-        final TextView tvTimeStart = dialog.findViewById(R.id.tvTimeStart);
         final TextView tvDateEnd = dialog.findViewById(R.id.tvDateEnd);
+        tvDateStart.setText(date);
+        tvDateEnd.setText(date);
+
+        final TextView tvTimeStart = dialog.findViewById(R.id.tvTimeStart);
         final TextView tvTimeEnd = dialog.findViewById(R.id.tvTimeEnd);
+        tvTimeStart.setText(time);
+        tvTimeEnd.setText(time);
 
         // Date Section
         tvDateStart.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +114,6 @@ public class MainActivity extends AppCompatActivity {
                         String date = dayOfMonth + "/" + (month + 1) + "/" + year;
                         tvDateStart.setText(date);
                         tempEvent.setDateStart(date);
-                        Log.e("asd", tempEvent.getDateStart());
                     }
                 });
                 datePickerDialog.show();
@@ -124,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
 
                 TimePickerDialog timePickerDialog = new TimePickerDialog(MainActivity.this,
                         new TimePickerDialog.OnTimeSetListener() {
-
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                                 String time = hourOfDay + ":" + minute;
@@ -146,7 +168,6 @@ public class MainActivity extends AppCompatActivity {
 
                 TimePickerDialog timePickerDialog = new TimePickerDialog(MainActivity.this,
                         new TimePickerDialog.OnTimeSetListener() {
-
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                                 String time = hourOfDay + ":" + minute;
@@ -163,20 +184,49 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (etEventName.getText().length() > 0) {
-                    tempEvent.setName(etEventName.getText().toString());
-                    tempEvent.setLocation(etEventLocation.getText().toString());
-                    tempEvent.setDescription(etEventDescription.getText().toString());
-                    tempEvent.setImage(R.drawable.test_event);
+                    if (isDateValid(tempEvent.getDateStart(), tempEvent.getDateEnd(),
+                            tempEvent.getTimeStart(), tempEvent.getTimeEnd())) {
+                        tempEvent.setName(etEventName.getText().toString());
+                        tempEvent.setLocation(etEventLocation.getText().toString());
+                        tempEvent.setDescription(etEventDescription.getText().toString());
+                        tempEvent.setImage(R.drawable.test_event);
 
-                    MainActivity.events.add(0, tempEvent);
-                    customEventAdapter.notifyItemRangeChanged(0, events.size());
-                    dialog.dismiss();
+                        MainActivity.events.add(0, tempEvent);
+                        customEventAdapter.notifyItemInserted(0);
+                        dialog.dismiss();
+                    } else {
+                        Toast.makeText(MainActivity.this,
+                                "Tarihleri doğru giriniz!", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    Snackbar.make(findViewById(R.id.coordinatorLayoutMain),
-                            "Etkinlik adı boş bırakılamaz!", Snackbar.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,
+                            "Etkinlik adı boş bırakılamaz!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
         dialog.show();
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    boolean isDateValid(String dateStart, String dateEnd, String timeStart, String timeEnd) {
+        boolean flag = false;
+
+        try {
+            Date _dateStart = new SimpleDateFormat("dd/MM/yyyy").parse(dateStart);
+            Date _dateEnd = new SimpleDateFormat("dd/MM/yyyy").parse(dateEnd);
+            Date _timeStart = new SimpleDateFormat("HH:mm").parse(timeStart);
+            Date _timeEnd = new SimpleDateFormat("HH:mm").parse(timeEnd);
+
+            if (_dateEnd != null && _dateEnd.equals(_dateStart)) {
+                if (_timeEnd != null && _timeEnd.after(_timeStart)) {
+                    flag = true;
+                }
+            } else if (_dateEnd != null && _dateEnd.after(_dateStart)) {
+                flag = true;
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return flag;
     }
 }
