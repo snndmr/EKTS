@@ -8,7 +8,6 @@
     <string name="main_image" />
     <string name="image" />
     <string name="add">Ekle</string>
-    <string name="enterEventName">Etkinliğin adını girin</string>
-    <string name="enterEventDate">Etkinliğin tarihini girin</string>
-    <string name="enterEventDescription">Etkinliğin tanımını girin</string>
+    <string name="enterEventName">Etkinliğin Adı</string>
+    <string name="enterEventDescription">Etkinliğin Tanımı</string>
 </resources>
