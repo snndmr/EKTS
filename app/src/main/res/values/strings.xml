@@ -10,4 +10,11 @@
     <string name="add">Ekle</string>
     <string name="enterEventName">Etkinliğin Adı</string>
     <string name="enterEventDescription">Etkinliğin Tanımı</string>
+    <string name="start">Etkinliğin Başlangıç Tarihi</string>
+    <string name="end">Etkinliğin Bitiş Tarihi</string>
+    <string name="date">Date</string>
+    <string name="enterEventLocation">Etkinliğin Konumu</string>
+    <string name="date_test">24/12/2020</string>
+    <string name="time_test">13:00</string>
+    <string name="time_test_2">14:30</string>
 </resources>

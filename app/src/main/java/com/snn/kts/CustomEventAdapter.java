@@ -11,16 +11,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-
 class CustomEventAdapter extends RecyclerView.Adapter<CustomEventAdapter.Holder> {
     private Context context;
-    private ArrayList<Event> events;
     private LayoutInflater layoutInflater;
 
-    CustomEventAdapter(Context context, ArrayList<Event> events) {
+    CustomEventAdapter(Context context) {
         this.context = context;
-        this.events = events;
         this.layoutInflater = LayoutInflater.from(context);
     }
 
@@ -37,7 +33,7 @@ class CustomEventAdapter extends RecyclerView.Adapter<CustomEventAdapter.Holder>
 
     @Override
     public int getItemCount() {
-        return events.size();
+        return MainActivity.events.size();
     }
 
     class Holder extends RecyclerView.ViewHolder {
@@ -49,7 +45,7 @@ class CustomEventAdapter extends RecyclerView.Adapter<CustomEventAdapter.Holder>
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, "Pos : " + position, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, MainActivity.events.get(position).toString(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -60,8 +56,8 @@ class CustomEventAdapter extends RecyclerView.Adapter<CustomEventAdapter.Holder>
             TextView textview = itemView.findViewById(R.id.tvEventCard);
             ImageView imageView = itemView.findViewById(R.id.ivEventCard);
 
-            textview.setText(events.get(position).getName());
-            imageView.setImageResource(events.get(position).getImage());
+            textview.setText(MainActivity.events.get(position).getName());
+            imageView.setImageResource(MainActivity.events.get(position).getImage());
         }
     }
 }
