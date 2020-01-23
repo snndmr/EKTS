@@ -24,6 +24,21 @@ class Event {
         this.description = "Tanım Yok";
     }
 
+    @Override
+    public String toString() {
+        return "\n\t Event {" +
+                "\n\t ID=" + ID +
+                "\n\t image=" + image +
+                "\n\t name='" + name + '\'' +
+                "\n\t dateEnd='" + dateEnd + '\'' +
+                "\n\t dateStart='" + dateStart + '\'' +
+                "\n\t timeEnd='" + timeEnd + '\'' +
+                "\n\t timeStart='" + timeStart + '\'' +
+                "\n\t location='" + location + '\'' +
+                "\n\t description='" + description + '\'' +
+                "\n\t }";
+    }
+
     long getID() {
         return ID;
     }

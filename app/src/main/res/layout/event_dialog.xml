@@ -21,8 +21,9 @@
             android:src="@drawable/camera" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <EditText
@@ -142,12 +143,11 @@
         </LinearLayout>
 
         <TextView
-            android:layout_width="0dp"
             android:id="@+id/tvEventAdd"
-            android:layout_margin="@dimen/margin_extra_small"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"
+            android:layout_margin="@dimen/margin_extra_small"
             android:fontFamily="@font/tokens_bold"
             android:padding="@dimen/padding_medium"
             android:text="@string/add"

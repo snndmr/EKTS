@@ -1,12 +1,12 @@
 package com.snn.ekts;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,7 +45,9 @@ class CustomEventAdapter extends RecyclerView.Adapter<CustomEventAdapter.Holder>
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, MainActivity.events.get(position).toString(), Toast.LENGTH_SHORT).show();
+                    Intent event = new Intent(context, EventActivity.class);
+                    event.putExtra("Position", position);
+                    context.startActivity(event);
                 }
             });
         }
