@@ -4,9 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.snn.ekts.EventActivity"
     tools:showIn="@layout/activity_event">
+
+    <ImageView
+        android:id="@+id/ivEventCard"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/card_height"
+        android:layout_margin="@dimen/card_margin"
+        android:contentDescription="@string/event_image"
+        android:scaleType="centerCrop"
+        android:src="@drawable/event_test" />
 
     <TextView
         android:id="@+id/tvTest"
