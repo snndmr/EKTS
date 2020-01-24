@@ -8,25 +8,19 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/et_search_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/et_search_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:cursorVisible="false"
-            android:drawableStart="@drawable/search"
-            android:drawablePadding="@dimen/padding_medium"
-            android:fontFamily="@font/tokens_normal"
-            android:hint="@string/search_something"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            android:padding="@dimen/padding_medium"
-            android:textSize="@dimen/text_size_medium" />
-    </LinearLayout>
-
+        android:background="@null"
+        android:cursorVisible="false"
+        android:drawableStart="@drawable/ic_search"
+        android:drawablePadding="@dimen/padding_medium"
+        android:fontFamily="@font/tokens_normal"
+        android:hint="@string/search_something"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:padding="@dimen/padding_medium"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textSize="@dimen/text_size_medium" />
 </androidx.cardview.widget.CardView>

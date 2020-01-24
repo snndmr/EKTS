@@ -1,6 +1,9 @@
 package com.snn.ekts;
 
+import java.util.Calendar;
+
 class Event {
+    private static long sID = 1;
     private long ID;
     private int image;
     private String name;
@@ -12,16 +15,21 @@ class Event {
     private String description;
 
     Event() {
-        this.ID = System.currentTimeMillis() / 1000;
+        Calendar calendar = Calendar.getInstance();
+        String date = calendar.get(Calendar.DAY_OF_MONTH) + "/" + (calendar.get(Calendar.MONTH) + 1) + "/" + calendar.get(Calendar.YEAR);
+        String time = calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE);
 
-        this.image = R.drawable.test_event;
-        this.name = "Etkinlik Adı Yok";
-        this.dateEnd = "1/1/1970";
-        this.dateStart = "1/1/1970";
-        this.timeEnd = "00:00";
-        this.timeStart = "00:00";
+        this.ID = sID;
+        this.image = R.drawable.event_test;
+        this.name = Event.class.getSimpleName() + " : " + this.ID;
+        this.dateEnd = date;
+        this.dateStart = date;
+        this.timeEnd = time;
+        this.timeStart = time;
         this.location = "Konum Yok";
-        this.description = "Tanım Yok";
+        this.description = Event.class.getName() + " : " + this.ID + "";
+
+        sID += 1;
     }
 
     @Override

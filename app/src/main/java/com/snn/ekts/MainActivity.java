@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void test() {
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 50; i++) {
             events.add(new Event());
         }
     }
@@ -65,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         rvEvents.setLayoutManager(gridLayoutManager);
+
+        Snackbar.make(findViewById(R.id.coordinatorLayoutMain),
+                "Etkinlik Kayıt Takip Sistemine Hoşgeldiniz!", 3000).show();
     }
 
     void showAddDialog() {
@@ -181,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
                         tempEvent.setName(etEventName.getText().toString());
                         tempEvent.setLocation(etEventLocation.getText().toString());
                         tempEvent.setDescription(etEventDescription.getText().toString());
-                        tempEvent.setImage(R.drawable.test_event);
+                        tempEvent.setImage(R.drawable.event_test);
 
                         MainActivity.events.add(0, tempEvent);
                         customEventAdapter.notifyItemInserted(0);

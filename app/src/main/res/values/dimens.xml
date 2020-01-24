@@ -15,8 +15,10 @@
 
     <dimen name="card_height">240dp</dimen>
     <dimen name="card_margin">16dp</dimen>
-    <dimen name="card_elevation">16dp</dimen>
+    <dimen name="card_elevation">8dp</dimen>
 
     <dimen name="floating_action_button_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="radius">4dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
 </resources>
