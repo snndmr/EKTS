@@ -15,4 +15,4 @@
         android:layout_gravity="center"
         android:fontFamily="@font/tokens_normal"
         android:textSize="@dimen/text_size_medium" />
-</>
+</LinearLayout>
