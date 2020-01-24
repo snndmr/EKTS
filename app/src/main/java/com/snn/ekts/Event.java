@@ -20,7 +20,18 @@ class Event {
         String time = calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE);
 
         this.ID = sID;
-        this.image = R.drawable.event_test;
+
+        switch ((int) (sID % 3)) {
+            case 0:
+                this.image = R.drawable.event_test1;
+                break;
+            case 1:
+                this.image = R.drawable.event_test2;
+                break;
+            case 2:
+                this.image = R.drawable.event_test3;
+                break;
+        }
         this.name = Event.class.getSimpleName() + " : " + this.ID;
         this.dateEnd = date;
         this.dateStart = date;

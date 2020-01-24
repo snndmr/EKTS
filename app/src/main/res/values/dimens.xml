@@ -13,12 +13,11 @@
     <dimen name="margin_small">12dp</dimen>
     <dimen name="margin_extra_small">4dp</dimen>
 
-    <dimen name="card_height">240dp</dimen>
+    <dimen name="card_height">180dp</dimen>
     <dimen name="card_margin">16dp</dimen>
-    <dimen name="card_elevation">8dp</dimen>
+    <dimen name="card_elevation">4dp</dimen>
 
-    <dimen name="floating_action_button_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="radius">4dp</dimen>
     <dimen name="margin_medium">16dp</dimen>
+    <dimen name="event_height">320dp</dimen>
 </resources>

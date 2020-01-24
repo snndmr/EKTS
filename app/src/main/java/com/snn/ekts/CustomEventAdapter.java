@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 class CustomEventAdapter extends RecyclerView.Adapter<CustomEventAdapter.Holder> {
     private Context context;
     private LayoutInflater layoutInflater;
@@ -59,7 +61,13 @@ class CustomEventAdapter extends RecyclerView.Adapter<CustomEventAdapter.Holder>
             ImageView imageView = itemView.findViewById(R.id.ivEventCard);
 
             textview.setText(MainActivity.events.get(position).getName());
-            imageView.setImageResource(MainActivity.events.get(position).getImage());
+            Picasso.get()
+                    .load(MainActivity.events.get(position).getImage())
+                    .centerCrop()
+                    .resize(1000, 1000)
+                    .error(R.drawable.event_test1)
+                    .placeholder(R.drawable.event_test1)
+                    .into(imageView);
         }
     }
 }

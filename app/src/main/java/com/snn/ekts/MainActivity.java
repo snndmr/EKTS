@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void test() {
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 30; i++) {
             events.add(new Event());
         }
     }
@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
                         tempEvent.setName(etEventName.getText().toString());
                         tempEvent.setLocation(etEventLocation.getText().toString());
                         tempEvent.setDescription(etEventDescription.getText().toString());
-                        tempEvent.setImage(R.drawable.event_test);
+                        tempEvent.setImage(R.drawable.event_test1);
 
                         MainActivity.events.add(0, tempEvent);
                         customEventAdapter.notifyItemInserted(0);
