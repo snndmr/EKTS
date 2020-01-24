@@ -13,7 +13,7 @@
     <dimen name="margin_small">12dp</dimen>
     <dimen name="margin_extra_small">4dp</dimen>
 
-    <dimen name="card_height">180dp</dimen>
+    <dimen name="card_height">240dp</dimen>
     <dimen name="card_margin">16dp</dimen>
     <dimen name="card_elevation">4dp</dimen>
 
