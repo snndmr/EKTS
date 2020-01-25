@@ -14,7 +14,7 @@
             android:layout_height="match_parent"
             android:contentDescription="@string/event_image"
             android:scaleType="centerCrop"
-            android:src="@drawable/event_test1"
+            android:src="@drawable/event_default"
             android:tint="@color/transparency" />
 
         <TextView

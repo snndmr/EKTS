@@ -17,16 +17,13 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
-    static ArrayList<Event> events = new ArrayList<>();
     private CustomEventAdapter customEventAdapter;
 
     @Override
@@ -34,14 +31,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        test();
+        new Test();
         init();
-    }
-
-    void test() {
-        for (int i = 0; i < 30; i++) {
-            events.add(new Event());
-        }
     }
 
     void init() {
@@ -66,9 +57,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         rvEvents.setLayoutManager(gridLayoutManager);
-
-        Snackbar.make(findViewById(R.id.coordinatorLayoutMain),
-                "Etkinlik Kayıt Takip Sistemine Hoşgeldiniz!", 3000).show();
     }
 
     void showAddDialog() {
@@ -185,9 +173,9 @@ public class MainActivity extends AppCompatActivity {
                         tempEvent.setName(etEventName.getText().toString());
                         tempEvent.setLocation(etEventLocation.getText().toString());
                         tempEvent.setDescription(etEventDescription.getText().toString());
-                        tempEvent.setImage(R.drawable.event_test1);
+                        tempEvent.setImage(R.drawable.event_default);
 
-                        MainActivity.events.add(0, tempEvent);
+                        Test.events.add(0, tempEvent);
                         customEventAdapter.notifyItemInserted(0);
                         dialog.dismiss();
                     } else {

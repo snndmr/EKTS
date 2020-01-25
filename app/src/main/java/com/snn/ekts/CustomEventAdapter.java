@@ -35,7 +35,7 @@ class CustomEventAdapter extends RecyclerView.Adapter<CustomEventAdapter.Holder>
 
     @Override
     public int getItemCount() {
-        return MainActivity.events.size();
+        return Test.events.size();
     }
 
     class Holder extends RecyclerView.ViewHolder {
@@ -60,13 +60,13 @@ class CustomEventAdapter extends RecyclerView.Adapter<CustomEventAdapter.Holder>
             TextView textview = itemView.findViewById(R.id.tvEventCard);
             ImageView imageView = itemView.findViewById(R.id.ivEventCard);
 
-            textview.setText(MainActivity.events.get(position).getName());
+            textview.setText(Test.events.get(position).getName());
             Picasso.get()
-                    .load(MainActivity.events.get(position).getImage())
+                    .load(Test.events.get(position).getImage())
                     .centerCrop()
-                    .resize(1000, 1000)
-                    .error(R.drawable.event_test1)
-                    .placeholder(R.drawable.event_test1)
+                    .resize(512, 512)
+                    .error(R.drawable.event_default)
+                    .placeholder(R.drawable.event_default)
                     .into(imageView);
         }
     }

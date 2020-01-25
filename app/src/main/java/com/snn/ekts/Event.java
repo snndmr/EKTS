@@ -1,11 +1,12 @@
 package com.snn.ekts;
 
-import java.util.Calendar;
+
+import java.sql.Timestamp;
 
 class Event {
-    private static long sID = 1;
-    private long ID;
+
     private int image;
+    private String ID;
     private String name;
     private String dateEnd;
     private String dateStart;
@@ -14,52 +15,32 @@ class Event {
     private String location;
     private String description;
 
+    Event(int image, String name, String dateEnd, String dateStart, String timeEnd, String timeStart, String location, String description) {
+        this.image = image;
+        this.ID = "event_" + new Timestamp(System.currentTimeMillis());
+        this.name = name;
+        this.dateEnd = dateEnd;
+        this.dateStart = dateStart;
+        this.timeEnd = timeEnd;
+        this.timeStart = timeStart;
+        this.location = location;
+        this.description = description;
+    }
+
     Event() {
-        Calendar calendar = Calendar.getInstance();
-        String date = calendar.get(Calendar.DAY_OF_MONTH) + "/" + (calendar.get(Calendar.MONTH) + 1) + "/" + calendar.get(Calendar.YEAR);
-        String time = calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE);
-
-        this.ID = sID;
-
-        switch ((int) (sID % 3)) {
-            case 0:
-                this.image = R.drawable.event_test1;
-                break;
-            case 1:
-                this.image = R.drawable.event_test2;
-                break;
-            case 2:
-                this.image = R.drawable.event_test3;
-                break;
-        }
-        this.name = Event.class.getSimpleName() + " : " + this.ID;
-        this.dateEnd = date;
-        this.dateStart = date;
-        this.timeEnd = time;
-        this.timeStart = time;
-        this.location = "Konum Yok";
-        this.description = Event.class.getName() + " : " + this.ID + "";
-
-        sID += 1;
     }
 
     @Override
     public String toString() {
-        return "\n\t Event {" +
-                "\n\t ID=" + ID +
-                "\n\t image=" + image +
-                "\n\t name='" + name + '\'' +
-                "\n\t dateEnd='" + dateEnd + '\'' +
-                "\n\t dateStart='" + dateStart + '\'' +
-                "\n\t timeEnd='" + timeEnd + '\'' +
-                "\n\t timeStart='" + timeStart + '\'' +
-                "\n\t location='" + location + '\'' +
-                "\n\t description='" + description + '\'' +
-                "\n\t }";
-    }
-
-    long getID() {
-        return ID;
+        return "\nimage : " + image +
+                "\nID : " + ID +
+                "\nname : " + name +
+                "\ndateEnd : " + dateEnd +
+                "\ndateStart : " + dateStart +
+                "\ntimeEnd : " + timeEnd +
+                "\ntimeStart : " + timeStart +
+                "\nlocation : " + location +
+                "\ndescription : " + description;
     }
 
     int getImage() {
@@ -68,6 +49,10 @@ class Event {
 
     void setImage(int image) {
         this.image = image;
+    }
+
+    String getID() {
+        return ID;
     }
 
     String getName() {

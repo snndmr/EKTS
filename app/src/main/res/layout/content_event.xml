@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/content_background"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.snn.ekts.EventActivity"
@@ -16,7 +15,7 @@
         android:layout_height="@dimen/event_height"
         android:layout_margin="@dimen/card_margin"
         android:contentDescription="@string/event_image"
-        android:src="@drawable/event_test1" />
+        android:src="@drawable/event_default" />
 
     <TextView
         android:id="@+id/tvTest"
@@ -25,4 +24,5 @@
         android:layout_gravity="center"
         android:fontFamily="@font/tokens_normal"
         android:textSize="@dimen/text_size_medium" />
+
 </LinearLayout>

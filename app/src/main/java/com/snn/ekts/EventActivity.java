@@ -35,8 +35,8 @@ public class EventActivity extends AppCompatActivity {
         TextView tvTest = findViewById(R.id.tvTest);
         ImageView ivTest = findViewById(R.id.ivEventCard);
 
-        ivTest.setImageResource(MainActivity.events.get(event_position).getImage());
-        tvTest.setText(MainActivity.events.get(event_position).toString());
+        ivTest.setImageResource(Test.events.get(event_position).getImage());
+        tvTest.setText(Test.events.get(event_position).toString());
     }
 
 }
