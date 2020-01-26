@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                return position == 0 ? 2 : 1;
+                return customEventAdapter.getItemViewType(position);
             }
         });
         rvEvents.setLayoutManager(gridLayoutManager);

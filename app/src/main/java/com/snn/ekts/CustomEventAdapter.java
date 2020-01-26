@@ -21,7 +21,19 @@ class CustomEventAdapter extends RecyclerView.Adapter<CustomEventAdapter.Holder>
     @NonNull
     @Override
     public CustomEventAdapter.Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new Holder(layoutInflater.inflate(R.layout.event_card, parent, false));
+        if (viewType == 2) {
+            return new Holder(layoutInflater.inflate(R.layout.event_card_horizontal, parent, false));
+        }
+        return new Holder(layoutInflater.inflate(R.layout.event_card_vertical, parent, false));
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if (position == 0) {
+            return 2;
+        } else {
+            return 1;
+        }
     }
 
     @Override
@@ -52,18 +64,6 @@ class CustomEventAdapter extends RecyclerView.Adapter<CustomEventAdapter.Holder>
 
         void setData(int position) {
             this.position = position;
-
-            //TextView textview = itemView.findViewById(R.id.tvEventCard);
-            //ImageView imageView = itemView.findViewById(R.id.ivEventCard);
-
-            //textview.setText(Test.events.get(position).getName());
-            /*Picasso.get()
-                    .load(Test.events.get(position).getImage())
-                    .centerCrop()
-                    .resize(512, 512)
-                    .error(R.drawable.event_default)
-                    .placeholder(R.drawable.event_default)
-                    .into(imageView);*/
         }
     }
 }
