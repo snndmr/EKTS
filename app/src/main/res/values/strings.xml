@@ -19,4 +19,6 @@
     <string name="time_test_2">14:30</string>
     <string name="title_activity_event">EventActivity</string>
     <string name="no_barcode_detected">QR Barkod tespit edilemedi!</string>
+    <string name="event_id">E201 - 300 - 5AC</string>
+    <string name="participants">2000</string>
 </resources>

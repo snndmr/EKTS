@@ -5,13 +5,9 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.squareup.picasso.Picasso;
 
 class CustomEventAdapter extends RecyclerView.Adapter<CustomEventAdapter.Holder> {
     private Context context;
@@ -57,17 +53,17 @@ class CustomEventAdapter extends RecyclerView.Adapter<CustomEventAdapter.Holder>
         void setData(int position) {
             this.position = position;
 
-            TextView textview = itemView.findViewById(R.id.tvEventCard);
-            ImageView imageView = itemView.findViewById(R.id.ivEventCard);
+            //TextView textview = itemView.findViewById(R.id.tvEventCard);
+            //ImageView imageView = itemView.findViewById(R.id.ivEventCard);
 
-            textview.setText(Test.events.get(position).getName());
-            Picasso.get()
+            //textview.setText(Test.events.get(position).getName());
+            /*Picasso.get()
                     .load(Test.events.get(position).getImage())
                     .centerCrop()
                     .resize(512, 512)
                     .error(R.drawable.event_default)
                     .placeholder(R.drawable.event_default)
-                    .into(imageView);
+                    .into(imageView);*/
         }
     }
 }
